@@ -86,7 +86,7 @@ if( ( $jobstatusstring == "finished" ) || ( $jobstatusstring == "ERROR" ) )
 
   $nroffiles = 0;
   $cursor = 0;
-  while( $tempfileinfo = parse_next_element( $xmldoc, "<file_info>", &$cursor ) )
+  while( $tempfileinfo = parse_next_element( $xmldoc, "<file_info>", $cursor ) )
    $outputfiles[ $nroffiles++ ] = parse_element( $tempfileinfo, "<name>" );
 
   if( $nroffiles >= 1 )

@@ -267,7 +267,7 @@ function read_log() {
         exit();
     }
     $startid = 0;
-    while (fscanf($f, '%d', &$startid)) {
+    while (fscanf($f, '%d', $startid)) {
         // read to the last entry in the file
     }
     fclose($f);
@@ -293,7 +293,7 @@ function main() {
             exit();
         }
         $thisid = 0;
-        while (fscanf($fid, '%d', &$thisid)) {
+        while (fscanf($fid, '%d', $thisid)) {
             if ($thisid > $startid) {
                 do_one($thisid, $f);
             }
