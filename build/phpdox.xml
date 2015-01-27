@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpdox xmlns="http://phpdox.net/config">
- <project name="boinc-php" source="../html/inc" workdir="phpdox">
+ <project name="boinc-php" source="../html" workdir="phpdox">
   <collector publiconly="false">
-   <include mask="*.php" />
+   <include mask="../html/inc/*.inc" />
+   <include mask="../html/inc/*.php" />
+   <include mask="../html/ops/*.php" />
+   <include mask="../html/user/*.php" />
   </collector>
 
   <generator output=".">
+	<enrich base="logs">
+	  <source type="build" />
+	  <source type="git" />
+	  <source type="phploc" />
+	  <source type="checkstyle" />
+	  <source type="pmd" />
+	  <!-- <source type="phpunit" /> -->
+	  </enrich>
    <build engine="html" enabled="true" output="api">
     <file extension="html" />
    </build>

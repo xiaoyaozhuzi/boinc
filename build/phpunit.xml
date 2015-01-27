@@ -20,7 +20,9 @@
 
 	<filter>
 		<whitelist addUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">../html</directory>
+			<directory>../html/inc</directory>
+			<directory>../html/ops</directory>
+			<directory>../html/user</directory>
 		</whitelist>
 	</filter>
 </phpunit>

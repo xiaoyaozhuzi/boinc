@@ -54,7 +54,7 @@
    <arg value="-l" />
 
    <fileset dir="${basedir}/html">
-    <include name="**/*.php" />
+	<include name="**/*.php,**/*.inc" />
     <modified />
    </fileset>
 
@@ -126,8 +126,8 @@
  <target name="phpcs"
          description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
   <exec executable="${toolsdir}phpcs">
-   <arg value="--standard=PSR2" />
-   <arg value="--extensions=php" />
+   <arg value="--standard=PSR1" />
+   <arg value="--extensions=php,inc" />
    <arg value="--ignore=autoload.php" />
    <arg path="${basedir}/html" />
 <!--   <arg path="${basedir}/tests" /> -->
@@ -140,8 +140,8 @@
   <exec executable="${toolsdir}phpcs" output="/dev/null">
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
-   <arg value="--standard=PSR2" />
-   <arg value="--extensions=php" />
+   <arg value="--standard=PSR1" />
+   <arg value="--extensions=php,inc" />
    <arg value="--ignore=autoload.php" />
    <arg path="${basedir}/html" />
   </exec>
