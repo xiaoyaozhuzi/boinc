@@ -104,7 +104,7 @@ int switcher_exec(const char *util_filename, const char* cmdline) {
     
     // Capture stdout output
     while (1) {
-        ssize_t count = read(fds_out[0], buffer, sizeof(buffer));
+        ssize_t count = read(fds_out[0], buffer, sizeof(buffer)-1);
         if (count == -1) {
             if (errno == EINTR) {
                 continue;
@@ -121,7 +121,7 @@ int switcher_exec(const char *util_filename, const char* cmdline) {
 
     // Capture stderr output
     while (1) {
-        ssize_t count = read(fds_err[0], buffer, sizeof(buffer));
+        ssize_t count = read(fds_err[0], buffer, sizeof(buffer)-1);
         if (count == -1) {
             if (errno == EINTR) {
                 continue;
